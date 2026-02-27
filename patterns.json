@@ -1,0 +1,86 @@
+{
+  "version": "0.1",
+  "description": "الگوهای پایه جملات فارسی برای تشخیص دستورات",
+  "patterns": [
+    {
+      "id": "create_object",
+      "pattern": "یه (\\w+) بساز",
+      "meaning": "ساختن یک شیء",
+      "params": ["object"],
+      "template": "create-{object}",
+      "examples": ["یه ربات بساز", "یه فایل بساز"]
+    },
+    {
+      "id": "send_message",
+      "pattern": "(.*) رو بفرست",
+      "meaning": "ارسال چیزی",
+      "params": ["content"],
+      "template": "send-{content}",
+      "examples": ["پیام رو بفرست", "عکس رو بفرست"]
+    },
+    {
+      "id": "fetch_from_url",
+      "pattern": "از (https?://[^\\s]+) (بگیر|دریافت کن)",
+      "meaning": "دریافت از آدرس اینترنتی",
+      "params": ["url"],
+      "template": "fetch-url",
+      "examples": ["از https://api.example.com بگیر"]
+    },
+    {
+      "id": "reminder_time",
+      "pattern": "(ساعت|در) (\\d+) (.*) رو (یادآوری کن|بگو)",
+      "meaning": "یادآوری در زمان مشخص",
+      "params": ["time", "message"],
+      "template": "reminder-at-time",
+      "examples": ["ساعت ۸ ناهار رو یادآوری کن"]
+    },
+    {
+      "id": "daily_reminder",
+      "pattern": "هر روز ساعت (\\d+) (.*) رو (بفرست|یادآوری کن)",
+      "meaning": "یادآوری روزانه",
+      "params": ["time", "message"],
+      "template": "reminder-daily",
+      "examples": ["هر روز ساعت ۸ حدیث رو بفرست"]
+    },
+    {
+      "id": "read_file",
+      "pattern": "فایل (.*) رو بخون",
+      "meaning": "خواندن فایل",
+      "params": ["filename"],
+      "template": "read-file",
+      "examples": ["فایل config.json رو بخون"]
+    },
+    {
+      "id": "write_file",
+      "pattern": "توی فایل (.*) بنویس (.*)",
+      "meaning": "نوشتن در فایل",
+      "params": ["filename", "content"],
+      "template": "write-file",
+      "examples": ["توی فایل log.txt بنویس سلام"]
+    },
+    {
+      "id": "connect_db",
+      "pattern": "به دیتابیس (.*) وصل شو",
+      "meaning": "اتصال به پایگاه داده",
+      "params": ["dbname"],
+      "template": "connect-db",
+      "examples": ["به دیتابیس users وصل شو"]
+    },
+    {
+      "id": "calculate_sum",
+      "pattern": "(.*) و (.*) رو جمع کن",
+      "meaning": "جمع دو عدد",
+      "params": ["a", "b"],
+      "template": "math-sum",
+      "examples": ["۵ و ۳ رو جمع کن"]
+    },
+    {
+      "id": "get_time",
+      "pattern": "ساعت رو (نشون بده|بگو)",
+      "meaning": "نمایش زمان فعلی",
+      "params": [],
+      "template": "get-current-time",
+      "examples": ["ساعت رو نشون بده"]
+    }
+  ]
+}
